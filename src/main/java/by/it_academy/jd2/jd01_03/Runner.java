@@ -16,10 +16,12 @@ public class Runner {
                                   {8.6, 9.4, 5.2},
                                   {1.5, 5.6, 6.5}};
 
+
         double[][] secondMatrix = {{8.7, 7.6},
                                    {5.3, 4.6},
                                    {6.7, 1.6}};
         double[] vector = {4.6, 3.8};
+        System.out.println("Mul matrix and vector");
         InOut.printArray(Helper.mul(secondMatrix,vector), "", 1);
         System.out.println();
         InOut.printArray(Helper.mul(firstMatrix,secondMatrix),"m");
