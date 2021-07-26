@@ -61,10 +61,12 @@ public class HelperTest {
 
     public static Stream<Arguments> mulProvider2() {
         return Stream.of(
-                Arguments.arguments(new double[][]{{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}},
+                Arguments.arguments(
+                        new double[][]{{1.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}},
                         new double[][]{{9.0, 8.0, 7.0}, {6.0, 5.0, 4.0}, {3.0, 2.0, 1.0}},
                         new double[][]{{30, 24, 18}, {84, 69, 54}, {138, 114, 90}}),
-                Arguments.arguments(new double[][]{{4.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}},
+                Arguments.arguments(
+                        new double[][]{{4.0, 2.0, 3.0}, {4.0, 5.0, 6.0}, {7.0, 8.0, 9.0}},
                         new double[][]{{9.0, 8.0, 7.0}, {6.0, 5.0, 4.0}},
                         null)
         );
