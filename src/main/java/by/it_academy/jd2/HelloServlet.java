@@ -1,16 +1,23 @@
 package by.it_academy.jd2;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet(name = "HelloServlet", urlPatterns = "/test")
 public class HelloServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-        resp.setContentType("text/html");
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        String firstName = req.getParameter("firstName");
+        String lastName = req.getParameter("lastName");
+        resp.setContentType("text/html; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
-        writer.write("<p><span style='color: blue;'>Hello, world!</span></p>");
+        writer.write("<p><span style='color: red;'>Hello, " + lastName + " " + firstName + "!</span></p>");
     }
+
+
 }
