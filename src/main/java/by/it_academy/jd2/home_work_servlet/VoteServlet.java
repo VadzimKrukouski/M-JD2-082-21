@@ -17,12 +17,13 @@ public class VoteServlet extends HttpServlet {
     private static final HashMapGenre hashMapGenre = new HashMapGenre();
     private static final Map<String, Integer> performersMap = hashMapPerformer.getPerformerMap();
     private static final Map<String, Integer> genresMap = hashMapGenre.getGenresMap();
-    private static final Map<String, Date> textMap = new HashMap<>();
+    private static final Map<Date, String> textMap = new TreeMap<>();
 
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html; charset=UTF-8");
+        req.setCharacterEncoding("utf-8");
         PrintWriter writer = resp.getWriter();
 
         String performer = req.getParameter("performer");
@@ -39,7 +40,7 @@ public class VoteServlet extends HttpServlet {
             voteGenre(genre);
 
             session.setAttribute("date", date);
-            textMap.put(text, date);
+            textMap.put(date, text);
 
 
             writer.write("<h2>" + "Performers:" + "</h2>");
@@ -54,8 +55,9 @@ public class VoteServlet extends HttpServlet {
 
 
             writer.write("<h2>" + "Text about you:" + "</h2>");
-            for (String yourText : textMap.keySet()) {
-                writer.write("<p>" + yourText + " " + date + "</p>");
+
+            for (Date dateKey : textMap.keySet()) {
+                writer.write("<p>" + textMap.get(dateKey) + "</p>");
             }
 
             writer.write("<a href=http://localhost:8080/M-JD2-082-21-1.0-SNAPSHOT/> Vote </a>");
