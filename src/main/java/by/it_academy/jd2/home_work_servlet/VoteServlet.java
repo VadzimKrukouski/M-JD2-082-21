@@ -33,6 +33,7 @@ public class VoteServlet extends HttpServlet {
 
         if (genre.length < 3) {
             writer.write("<h2>" + "ERROR:Вы выбрали мало жанров. Пожалуйста переголосуйте!" + "</h2>");
+            writer.write("<a href=http://localhost:8080/M-JD2-082-21-1.0-SNAPSHOT/> Vote </a>");
         } else {
             votePerformer(performer);
             voteGenre(genre);
@@ -56,6 +57,9 @@ public class VoteServlet extends HttpServlet {
             for (String yourText : textMap.keySet()) {
                 writer.write("<p>" + yourText + " " + date + "</p>");
             }
+
+            writer.write("<a href=http://localhost:8080/M-JD2-082-21-1.0-SNAPSHOT/> Vote </a>");
+
         }
     }
 
