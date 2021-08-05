@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @WebServlet(name = "QuizServlet", urlPatterns = "/")
 public class QuizServlet extends HttpServlet {
@@ -23,8 +24,8 @@ public class QuizServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter writer = resp.getWriter();
         resp.setContentType("text/html; charset=UTF-8");
+        PrintWriter writer = resp.getWriter();
 
         writer.write("<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
@@ -47,7 +48,7 @@ public class QuizServlet extends HttpServlet {
                 "\t\t<input type=\"checkbox\" name=\"genre\" value=\"2\"/> Поп <br/>\n" +
                 "\t\t<input type=\"checkbox\" name=\"genre\" value=\"3\"/> Фолк <br/>\n" +
                 "\t\t<input type=\"checkbox\" name=\"genre\" value=\"4\"/> Альт <br/>\n" +
-                "\t\t<input type=\"checkbox\" name=\"genre\" value=\"5\"/> Клкассика <br/>\n" +
+                "\t\t<input type=\"checkbox\" name=\"genre\" value=\"5\"/> Классика <br/>\n" +
                 "\t\t<input type=\"checkbox\" name=\"genre\" value=\"6\"/> Джаз <br/>\n" +
                 "\t\t<input type=\"checkbox\" name=\"genre\" value=\"7\"/> Тиктоник <br/>\n" +
                 "\t\t<label for=\"about\">О себе</label><br/>\n" +
@@ -60,13 +61,12 @@ public class QuizServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter writer = resp.getWriter();
         resp.setContentType("text/html; charset=UTF-8");
+        PrintWriter writer = resp.getWriter();
 
         String artist = req.getParameter("artist");
         String[] genres = req.getParameterValues("genre");
         String about = req.getParameter("about");
-
 
         this.service.addVote(artist, genres, about);
 
@@ -74,22 +74,62 @@ public class QuizServlet extends HttpServlet {
         Map<String, Integer> genreResult = this.service.getGenreResult();
         List<String> aboutResult = this.service.getAboutResult();
 
-        for (Map.Entry<String, Integer> entry : artistResult.entrySet()) {
-            switch (entry.getKey()) {
+
+        writer.write("<h2> Результаты голосования артистов: </h2>");
+        List<Map.Entry<String, Integer>> sortedArtist = artistResult.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).collect(Collectors.toList());
+        for (Map.Entry<String, Integer> stringIntegerEntry : sortedArtist) {
+            switch (stringIntegerEntry.getKey()) {
                 case "1":
-                    writer.write("Ирина Олегрова");
+                    writer.write("Ирина Олегрова ");
                     break;
                 case "2":
-                    writer.write("Каста");
+                    writer.write("Каста ");
                     break;
                 case "3":
-                    writer.write("Луна");
+                    writer.write("Луна ");
                     break;
                 case "4":
-                    writer.write("Иванушки");
+                    writer.write("Иванушки ");
                     break;
             }
-            writer.write(String.valueOf(entry.getValue()));
+            writer.write(String.valueOf(stringIntegerEntry.getValue()));
+            writer.write("<br/>");
+        }
+
+        writer.write("<h2> Результаты голосования жанров: </h2>");
+        List<Map.Entry<String, Integer>> sortedGenre = genreResult.entrySet().stream().sorted(Map.Entry.<String, Integer>comparingByValue().reversed()).collect(Collectors.toList());
+        for (Map.Entry<String, Integer> entryGenre : sortedGenre) {
+            switch (entryGenre.getKey()) {
+                case "1":
+                    writer.write("Рок ");
+                    break;
+                case "2":
+                    writer.write("Поп ");
+                    break;
+                case "3":
+                    writer.write("Фолк ");
+                    break;
+                case "4":
+                    writer.write("Альт ");
+                    break;
+                case "5":
+                    writer.write("Классика ");
+                    break;
+                case "6":
+                    writer.write("Джаз ");
+                    break;
+                case "7":
+                    writer.write("Тиктоник ");
+                    break;
+            }
+            writer.write(String.valueOf(entryGenre.getValue()));
+            writer.write("<br/>");
+        }
+
+        writer.write("<h2> Текст о себе: </h2>");
+        for (String text : aboutResult) {
+            writer.write(text);
+            writer.write("<br/>");
         }
     }
 }
