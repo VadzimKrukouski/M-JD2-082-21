@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 public class ServletCookie extends HttpServlet {
 
     private static final String FIRST_NAME_PARAM_NAME = "firstName";
-    private static final String LAST_NAME_PARAM_NAME = "lastname";
+    private static final String LAST_NAME_PARAM_NAME = "lastName";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -24,7 +24,7 @@ public class ServletCookie extends HttpServlet {
         saveCookies(resp, FIRST_NAME_PARAM_NAME, firstNameVal);
 
         String lastNameVal = getValueFromAnywhere(req, LAST_NAME_PARAM_NAME);
-        saveCookies(resp, LAST_NAME_PARAM_NAME, firstNameVal);
+        saveCookies(resp, LAST_NAME_PARAM_NAME, lastNameVal);
 
 
         resp.setContentType("text/html; charset=UTF-8");
@@ -34,8 +34,8 @@ public class ServletCookie extends HttpServlet {
 
     }
 
-    private String getValueFromAnywhere(HttpServletRequest req, String firstNameParamName) {
-        String value = req.getParameter(firstNameParamName);
+    private String getValueFromAnywhere(HttpServletRequest req, String nameParam) {
+        String value = req.getParameter(nameParam);
 
         if (value!=null){
             return value;
@@ -45,7 +45,7 @@ public class ServletCookie extends HttpServlet {
 
         if (cookies!=null){
             value= Arrays.stream(cookies)
-                    .filter(c->firstNameParamName.equalsIgnoreCase(c.getName()))
+                    .filter(c->nameParam.equalsIgnoreCase(c.getName()))
                     .map(Cookie::getValue)
                     .findFirst()
                     .orElse(null);
@@ -59,8 +59,8 @@ public class ServletCookie extends HttpServlet {
 
     }
 
-    private void saveCookies(HttpServletResponse resp, String firstNameParamName, String firstNameVal) {
-        Cookie cookie = new Cookie(firstNameParamName, firstNameVal);
+    private void saveCookies(HttpServletResponse resp, String nameParam, String value) {
+        Cookie cookie = new Cookie(nameParam, value);
         cookie.setMaxAge(Math.toIntExact(TimeUnit.DAYS.toSeconds(1)));
         resp.addCookie(cookie);
     }

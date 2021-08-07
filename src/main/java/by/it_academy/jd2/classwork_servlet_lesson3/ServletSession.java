@@ -13,12 +13,15 @@ import java.io.PrintWriter;
 public class ServletSession extends HttpServlet {
 
     private static final String FIRST_NAME_PARAM_NAME = "firstName";
-    private static final String LAST_NAME_PARAM_NAME = "lastname";
+    private static final String LAST_NAME_PARAM_NAME = "lastName";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String firstNameValue = getValue(req,FIRST_NAME_PARAM_NAME);
-        String lastNameValue = getValue(req,LAST_NAME_PARAM_NAME);
+        HttpSession session = req.getSession();
+
+        String firstNameValue = getValue(req,FIRST_NAME_PARAM_NAME, session);
+        String lastNameValue = getValue(req,LAST_NAME_PARAM_NAME, session);
+
 
         resp.setContentType("text/html; charset=UTF-8");
         PrintWriter writer = resp.getWriter();
@@ -27,16 +30,15 @@ public class ServletSession extends HttpServlet {
 
     }
 
-    private String getValue(HttpServletRequest req, String name) {
+    private String getValue(HttpServletRequest req, String name, HttpSession session) {
         String value = req.getParameter(name);
-        HttpSession session = req.getSession(false);
 
         if (value != null) {
-            session.setAttribute(FIRST_NAME_PARAM_NAME, value);
+            session.setAttribute(name, value);
             return value;
         }
-        if (session!=null) {
-            value = (String) session.getAttribute(FIRST_NAME_PARAM_NAME);
+        if (value==null) {
+            value = (String) session.getAttribute(name);
             return value;
         }
         throw new IllegalArgumentException("параметры не введены");
