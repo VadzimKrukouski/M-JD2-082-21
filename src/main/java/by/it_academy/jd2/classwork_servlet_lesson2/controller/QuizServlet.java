@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @WebServlet(name = "QuizServlet", urlPatterns = "/")
 public class QuizServlet extends HttpServlet {
@@ -64,6 +61,7 @@ public class QuizServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html; charset=UTF-8");
+        req.setCharacterEncoding("utf-8");
         PrintWriter writer = resp.getWriter();
 
         String artist = req.getParameter("artist");
