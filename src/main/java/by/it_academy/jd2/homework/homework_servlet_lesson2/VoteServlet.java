@@ -1,4 +1,6 @@
-package by.it_academy.jd2.home_work_servlet;
+package by.it_academy.jd2.homework.homework_servlet_lesson2;
+
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

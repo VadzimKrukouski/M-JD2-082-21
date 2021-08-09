@@ -1,7 +1,7 @@
-package by.it_academy.jd2.classwork_servlet_lesson2.controller;
+package by.it_academy.jd2.classwork.classwork_servlet_lesson2.controller;
 
-import by.it_academy.jd2.classwork_servlet_lesson2.service.Printer;
-import by.it_academy.jd2.classwork_servlet_lesson2.service.VoteService;
+import by.it_academy.jd2.classwork.classwork_servlet_lesson2.service.Printer;
+import by.it_academy.jd2.classwork.classwork_servlet_lesson2.service.VoteService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

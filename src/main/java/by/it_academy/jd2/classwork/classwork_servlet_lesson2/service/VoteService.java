@@ -1,6 +1,6 @@
-package by.it_academy.jd2.classwork_servlet_lesson2.service;
+package by.it_academy.jd2.classwork.classwork_servlet_lesson2.service;
 
-import by.it_academy.jd2.classwork_servlet_lesson2.storage.VoteStorage;
+import by.it_academy.jd2.classwork.classwork_servlet_lesson2.storage.VoteStorage;
 
 import java.util.List;
 import java.util.Map;

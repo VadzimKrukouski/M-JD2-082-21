@@ -1,4 +1,4 @@
-package by.it_academy.jd2.classwork_servlet_lesson2.storage;
+package by.it_academy.jd2.classwork.classwork_servlet_lesson2.storage;
 
 import java.util.ArrayList;
 import java.util.HashMap;

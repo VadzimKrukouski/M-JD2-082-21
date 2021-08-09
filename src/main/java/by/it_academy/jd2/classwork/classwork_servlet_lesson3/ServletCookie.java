@@ -1,4 +1,4 @@
-package by.it_academy.jd2.classwork_servlet_lesson3;
+package by.it_academy.jd2.classwork.classwork_servlet_lesson3;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
