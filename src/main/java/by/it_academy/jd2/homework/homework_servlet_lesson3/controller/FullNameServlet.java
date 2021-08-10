@@ -16,29 +16,32 @@ public class FullNameServlet extends HttpServlet {
     private static final String FIRST_NAME_PARAM_NAME = "firstName";
     private static final String LAST_NAME_PARAM_NAME = "lastName";
     private static final String AGE_PARAM = "age";
-    private static final String HEADER_PARAM = "array_name_param";
+    private static final String HEADER_PARAM = "header";
+    private final CookieService cookieService = new CookieService();
+    private final SessionService sessionService = new SessionService();
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html; charset=UTF-8");
         req.setCharacterEncoding("utf-8");
-        PrintWriter writer = resp.getWriter();
+        cookieService.savePerson(req, resp, FIRST_NAME_PARAM_NAME, LAST_NAME_PARAM_NAME, AGE_PARAM);
+        sessionService.savePerson(req, FIRST_NAME_PARAM_NAME, LAST_NAME_PARAM_NAME, AGE_PARAM);
 
-        String header = req.getHeader(HEADER_PARAM);
-        if (header.equals("cookie")) {
-            CookieService cookieService = new CookieService();
-            cookieService.savePerson(req, resp, FIRST_NAME_PARAM_NAME, LAST_NAME_PARAM_NAME, AGE_PARAM);
-            cookieService.printFullName(writer);
-        }
-        if (header.equals("session")) {
-            SessionService sessionService = new SessionService();
-            sessionService.savePerson(req, FIRST_NAME_PARAM_NAME, LAST_NAME_PARAM_NAME, AGE_PARAM);
-            sessionService.printFullName(writer);
-        }
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html; charset=UTF-8");
+        req.setCharacterEncoding("utf-8");
+        PrintWriter writer = resp.getWriter();
 
+        String header = req.getHeader(HEADER_PARAM);
+
+        if (header.equals("cookie")) {
+            cookieService.getPerson(writer);
+        }
+        if (header.equals("session")) {
+            sessionService.getPerson(writer);
+        }
     }
 }

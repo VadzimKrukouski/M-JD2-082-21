@@ -27,6 +27,11 @@ public class CookieService {
         saveCookies(resp, age, ageValue);
     }
 
+    public void getPerson(PrintWriter writer) {
+        writer.write(person.getFirstName() + " " + person.getLastName() + " " + person.getAge());
+
+    }
+
     public String getValueCookie(HttpServletRequest req, String paramName) {
         String value = req.getParameter(paramName);
 
@@ -55,8 +60,4 @@ public class CookieService {
         resp.addCookie(cookie);
     }
 
-
-    public void printFullName(PrintWriter writer) {
-        writer.write(person.getFirstName() + person.getLastName() + person.getAge());
-    }
 }

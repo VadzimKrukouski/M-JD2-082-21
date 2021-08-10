@@ -25,6 +25,10 @@ public class SessionService {
 
     }
 
+    public void getPerson(PrintWriter writer) {
+        writer.write(person.getFirstName() + " " + person.getLastName() + " " + person.getAge());
+    }
+
     public String getValueSession(HttpServletRequest req, String name) {
         String value = req.getParameter(name);
 
@@ -47,7 +51,4 @@ public class SessionService {
         session.setAttribute(key, value);
     }
 
-    public void printFullName(PrintWriter writer) {
-        writer.write(person.getFirstName() + person.getLastName() + person.getAge());
-    }
 }
