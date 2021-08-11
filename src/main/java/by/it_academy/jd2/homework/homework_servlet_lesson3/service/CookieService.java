@@ -14,9 +14,13 @@ public class CookieService {
 
 
     public void savePerson(HttpServletRequest req, HttpServletResponse resp, String firstName, String lastName, String age) {
-        String firstNameValue = getValueCookie(req, firstName);
-        String lastNameValue = getValueCookie(req, lastName);
-        String ageValue = getValueCookie(req, age);
+        String firstNameValue = req.getParameter(firstName);
+        String lastNameValue = req.getParameter(lastName);
+        String ageValue = req.getParameter(age);
+
+        if (firstNameValue == null || lastNameValue == null || ageValue == null) {
+            throw new IllegalArgumentException("введены не все параметры");
+        }
 
         person.setFirstName(firstNameValue);
         person.setLastName(lastNameValue);
@@ -27,8 +31,12 @@ public class CookieService {
         saveCookies(resp, age, ageValue);
     }
 
-    public void getPerson(PrintWriter writer) {
-        writer.write(person.getFirstName() + " " + person.getLastName() + " " + person.getAge());
+    public void getPerson(PrintWriter writer, HttpServletRequest req, String firstName, String lastName, String age) {
+        String firstNameValue = getValueCookie(req, firstName);
+        String lastNameValue = getValueCookie(req, lastName);
+        String ageValue = getValueCookie(req, age);
+
+        writer.write(firstNameValue + " " + lastNameValue + " " + ageValue);
 
     }
 

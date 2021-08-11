@@ -11,9 +11,9 @@ public class SessionService {
     private final Person person = new Person();
 
     public void savePerson(HttpServletRequest req, String firstName, String lastName, String age) {
-        String firstNameValue = getValueSession(req, firstName);
-        String lastNameValue = getValueSession(req, lastName);
-        String ageValue = getValueSession(req, age);
+        String firstNameValue = req.getParameter(firstName);
+        String lastNameValue = req.getParameter(lastName);
+        String ageValue = req.getParameter(age);
 
         person.setFirstName(firstNameValue);
         person.setLastName(lastNameValue);
@@ -25,7 +25,10 @@ public class SessionService {
 
     }
 
-    public void getPerson(PrintWriter writer) {
+    public void getPerson(PrintWriter writer, HttpServletRequest req, String firstName, String lastName, String age) {
+        String firstNameValue = getValueSession(req, firstName);
+        String lastNameValue = getValueSession(req, lastName);
+        String ageValue = getValueSession(req, age);
         writer.write(person.getFirstName() + " " + person.getLastName() + " " + person.getAge());
     }
 

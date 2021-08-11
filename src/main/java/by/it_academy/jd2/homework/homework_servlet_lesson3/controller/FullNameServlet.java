@@ -38,10 +38,10 @@ public class FullNameServlet extends HttpServlet {
         String header = req.getHeader(HEADER_PARAM);
 
         if (header.equals("cookie")) {
-            cookieService.getPerson(writer);
+            cookieService.getPerson(writer, req, FIRST_NAME_PARAM_NAME, LAST_NAME_PARAM_NAME, AGE_PARAM);
         }
         if (header.equals("session")) {
-            sessionService.getPerson(writer);
+            sessionService.getPerson(writer, req, FIRST_NAME_PARAM_NAME, LAST_NAME_PARAM_NAME, AGE_PARAM);
         }
     }
 }
