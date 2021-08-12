@@ -1,4 +1,4 @@
-package by.it_academy.jd2.homework.homework_servlet_lesson3.storage;
+package by.it_academy.jd2.homework.homework_servlet_lesson3.model;
 
 public class Person {
 

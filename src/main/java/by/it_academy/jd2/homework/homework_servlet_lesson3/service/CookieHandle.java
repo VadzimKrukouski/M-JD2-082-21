@@ -1,44 +1,43 @@
 package by.it_academy.jd2.homework.homework_servlet_lesson3.service;
 
-import by.it_academy.jd2.homework.homework_servlet_lesson3.storage.Person;
+import by.it_academy.jd2.homework.homework_servlet_lesson3.model.Person;
+import by.it_academy.jd2.homework.homework_servlet_lesson3.service.api.HandleRequest;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.PrintWriter;
 import java.util.Arrays;
 
-public class CookieService {
+public class CookieHandle implements HandleRequest {
+    private static final String FIRST_NAME_COOKIE="firstName";
+    private static final String LAST_NAME_COOKIE="lastName";
+    private static final String AGE_COOKIE="age";
 
-    private final Person person = new Person();
+    private static final CookieHandle instance = new CookieHandle();
 
+    private CookieHandle() {
+    }
 
-    public void savePerson(HttpServletRequest req, HttpServletResponse resp, String firstName, String lastName, String age) {
-        String firstNameValue = req.getParameter(firstName);
-        String lastNameValue = req.getParameter(lastName);
-        String ageValue = req.getParameter(age);
+    @Override
+    public void save(HttpServletRequest req, HttpServletResponse resp, Person person) {
+        saveCookies(resp,FIRST_NAME_COOKIE, person.getFirstName());
+        saveCookies(resp,LAST_NAME_COOKIE, person.getLastName());
+        saveCookies(resp,AGE_COOKIE, person.getAge());
+    }
 
-        if (firstNameValue == null || lastNameValue == null || ageValue == null) {
-            throw new IllegalArgumentException("введены не все параметры");
-        }
-
+    @Override
+    public Person get(HttpServletRequest req) {
+        Person person=new Person();
+        String firstNameValue = getValueCookie(req, FIRST_NAME_COOKIE);
+        String lastNameValue = getValueCookie(req, LAST_NAME_COOKIE);
+        String ageValue = getValueCookie(req, AGE_COOKIE);
         person.setFirstName(firstNameValue);
         person.setLastName(lastNameValue);
         person.setAge(ageValue);
-
-        saveCookies(resp, firstName, firstNameValue);
-        saveCookies(resp, lastName, lastNameValue);
-        saveCookies(resp, age, ageValue);
+        return person;
     }
 
-    public void getPerson(PrintWriter writer, HttpServletRequest req, String firstName, String lastName, String age) {
-        String firstNameValue = getValueCookie(req, firstName);
-        String lastNameValue = getValueCookie(req, lastName);
-        String ageValue = getValueCookie(req, age);
 
-        writer.write(firstNameValue + " " + lastNameValue + " " + ageValue);
-
-    }
 
     public String getValueCookie(HttpServletRequest req, String paramName) {
         String value = req.getParameter(paramName);
@@ -68,4 +67,7 @@ public class CookieService {
         resp.addCookie(cookie);
     }
 
+    public static CookieHandle getInstance() {
+        return instance;
+    }
 }
