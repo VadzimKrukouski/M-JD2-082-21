@@ -1,7 +1,7 @@
-package by.it_academy.jd2.classwork.classwork_servlet_lesson2.controller;
+package by.it_academy.jd2.homework.task_vote.controller;
 
-import by.it_academy.jd2.classwork.classwork_servlet_lesson2.service.Printer;
-import by.it_academy.jd2.classwork.classwork_servlet_lesson2.service.VoteService;
+import by.it_academy.jd2.homework.task_vote.service.Printer;
+import by.it_academy.jd2.homework.task_vote.service.VoteService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "QuizServlet", urlPatterns = "/")
-public class QuizServlet extends HttpServlet {
+@WebServlet(name = "VoteServlet", urlPatterns = "/vote")
+public class VoteServlet extends HttpServlet {
 
     private final VoteService service;
 
-    public QuizServlet() {
+    public VoteServlet() {
         this.service = VoteService.getInstance();
     }
 

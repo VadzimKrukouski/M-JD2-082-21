@@ -1,8 +1,9 @@
-package by.it_academy.jd2.homework.homework_servlet_lesson3.controller;
+package by.it_academy.jd2.homework.task_person.controller.web.servlets;
 
-import by.it_academy.jd2.homework.homework_servlet_lesson3.model.Person;
-import by.it_academy.jd2.homework.homework_servlet_lesson3.service.api.HandleRequest;
-import by.it_academy.jd2.homework.homework_servlet_lesson3.service.api.StorageType;
+import by.it_academy.jd2.homework.task_person.controller.web.filters.EncodingFilter;
+import by.it_academy.jd2.homework.task_person.model.Person;
+import by.it_academy.jd2.homework.task_person.service.api.HandleRequest;
+import by.it_academy.jd2.homework.task_person.service.api.StorageType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "FullNameServlet", urlPatterns = "/fullName")
-public class FullNameServlet extends HttpServlet {
+@WebServlet(name = "DataPersonServlet", urlPatterns = "/person")
+public class DataPersonServlet extends HttpServlet {
     private static final String FIRST_NAME_PARAM_NAME = "firstName";
     private static final String LAST_NAME_PARAM_NAME = "lastName";
     private static final String AGE_PARAM = "age";
@@ -21,8 +22,9 @@ public class FullNameServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html; charset=UTF-8");
-        req.setCharacterEncoding("utf-8");
+//        resp.setContentType("text/html; charset=UTF-8");
+//        req.setCharacterEncoding("utf-8");
+
         PrintWriter writer = resp.getWriter();
 
         StorageType header = StorageType.valueOfIgnoreCase(req.getHeader(HEADER_PARAM_NAME));
@@ -40,8 +42,8 @@ public class FullNameServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html; charset=UTF-8");
-        req.setCharacterEncoding("utf-8");
+//        resp.setContentType("text/html; charset=UTF-8");
+//        req.setCharacterEncoding("utf-8");
 
 
         //создаём объект персона и туда из реквеста записываем значения, получаемые из параметров

@@ -1,7 +1,7 @@
-package by.it_academy.jd2.homework.homework_servlet_lesson3.service;
+package by.it_academy.jd2.homework.task_person.service;
 
-import by.it_academy.jd2.homework.homework_servlet_lesson3.model.Person;
-import by.it_academy.jd2.homework.homework_servlet_lesson3.service.api.HandleRequest;
+import by.it_academy.jd2.homework.task_person.model.Person;
+import by.it_academy.jd2.homework.task_person.service.api.HandleRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

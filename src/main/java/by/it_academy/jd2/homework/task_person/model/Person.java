@@ -1,4 +1,4 @@
-package by.it_academy.jd2.homework.homework_servlet_lesson3.model;
+package by.it_academy.jd2.homework.task_person.model;
 
 public class Person {
 

@@ -1,4 +1,4 @@
-package by.it_academy.jd2.classwork.classwork_servlet_lesson2.service;
+package by.it_academy.jd2.homework.task_vote.service;
 
 import java.io.PrintWriter;
 import java.util.List;
