@@ -1,4 +1,4 @@
-package by.it_academy.jd2.homework.task_vote.service;
+package by.it_academy.jd2.homework.task_vote.view;
 
 import java.io.PrintWriter;
 import java.util.List;

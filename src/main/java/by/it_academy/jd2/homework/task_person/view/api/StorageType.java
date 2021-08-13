@@ -1,7 +1,7 @@
-package by.it_academy.jd2.homework.task_person.service.api;
+package by.it_academy.jd2.homework.task_person.view.api;
 
-import by.it_academy.jd2.homework.task_person.service.CookieHandle;
-import by.it_academy.jd2.homework.task_person.service.SessionHandle;
+import by.it_academy.jd2.homework.task_person.view.CookieHandle;
+import by.it_academy.jd2.homework.task_person.view.SessionHandle;
 
 public enum StorageType {
     COOKIE(CookieHandle.getInstance()),

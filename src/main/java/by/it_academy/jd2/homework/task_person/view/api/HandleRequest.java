@@ -1,4 +1,4 @@
-package by.it_academy.jd2.homework.task_person.service.api;
+package by.it_academy.jd2.homework.task_person.view.api;
 
 import by.it_academy.jd2.homework.task_person.model.Person;
 

@@ -1,6 +1,6 @@
-package by.it_academy.jd2.homework.task_vote.service;
+package by.it_academy.jd2.homework.task_vote.view;
 
-import by.it_academy.jd2.homework.task_vote.storage.VoteStorage;
+import by.it_academy.jd2.homework.task_vote.model.VoteStorage;
 
 import java.util.List;
 import java.util.Map;

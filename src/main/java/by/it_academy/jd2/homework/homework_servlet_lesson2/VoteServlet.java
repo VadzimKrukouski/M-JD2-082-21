@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 
-@WebServlet(name = "VoteServlet", urlPatterns = "/vote")
+@WebServlet(name = "VoteServlet", urlPatterns = "/vote1")
 public class VoteServlet extends HttpServlet {
 
     private static final HashMapPerformer hashMapPerformer = new HashMapPerformer();

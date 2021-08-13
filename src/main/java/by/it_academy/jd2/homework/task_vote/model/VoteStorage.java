@@ -1,4 +1,4 @@
-package by.it_academy.jd2.homework.task_vote.storage;
+package by.it_academy.jd2.homework.task_vote.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;

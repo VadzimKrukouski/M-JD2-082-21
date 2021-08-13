@@ -1,9 +1,8 @@
 package by.it_academy.jd2.homework.task_person.controller.web.servlets;
 
-import by.it_academy.jd2.homework.task_person.controller.web.filters.EncodingFilter;
 import by.it_academy.jd2.homework.task_person.model.Person;
-import by.it_academy.jd2.homework.task_person.service.api.HandleRequest;
-import by.it_academy.jd2.homework.task_person.service.api.StorageType;
+import by.it_academy.jd2.homework.task_person.view.api.HandleRequest;
+import by.it_academy.jd2.homework.task_person.view.api.StorageType;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

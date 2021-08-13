@@ -1,7 +1,7 @@
-package by.it_academy.jd2.homework.task_vote.controller;
+package by.it_academy.jd2.homework.task_vote.controller.web.servlets;
 
-import by.it_academy.jd2.homework.task_vote.service.Printer;
-import by.it_academy.jd2.homework.task_vote.service.VoteService;
+import by.it_academy.jd2.homework.task_vote.view.Printer;
+import by.it_academy.jd2.homework.task_vote.view.VoteService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
