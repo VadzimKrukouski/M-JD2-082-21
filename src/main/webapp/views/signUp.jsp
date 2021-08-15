@@ -8,15 +8,42 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <html>
 <head>
-    <title>SignUp</title>
+    <title>Регистрация</title>
 </head>
 <body>
-<label> Логин</label>
-<textarea name="about"></textarea><br/>
-<label> ФИО</label>
-<textarea name="about"></textarea><br/>
-<label> Дата Рождения</label>
-<textarea name="about"></textarea><br/>
-<input type="submit" name="Зарегистрировать">
+<p>Заполните данные для регистрации на нашем сайте</p>
+<form action="/signUp" method="POST">
+<table>
+<tbody>
+<tr>
+<td>Login:</td>
+<td>
+<input type="text" name="login">
+</td>
+</tr>
+<tr>
+<td>Password:</td>
+<td>
+<input type="password" name="password">
+</td>
+</tr>
+<tr>
+<td>FIO:</td>
+<td>
+<input type="text" name="fio">
+</td>
+</tr>
+<tr>
+<td>Birthday:</td>
+<td>
+<input type="data" name="birthday">
+</td>
+</tr>
+</tbody>
+</table>
+<p>
+ <input type="submit" value="Зарегистироваться">
+ </p>
+</form>
 </body>
 </html>
