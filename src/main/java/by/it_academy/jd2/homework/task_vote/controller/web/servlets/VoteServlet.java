@@ -24,38 +24,7 @@ public class VoteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html; charset=UTF-8");
-        PrintWriter writer = resp.getWriter();
-
-        writer.write("<!DOCTYPE html>\n" +
-                "<html lang=\"en\">\n" +
-                "<head>\n" +
-                "\t<meta charset=\"UTF-8\">\n" +
-                "\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n" +
-                "\t<title>Quiz</title>\n" +
-                "</head>\n" +
-                "<body>\n" +
-                "\t<form action=\"/M-JD2-082-21-1.0-SNAPSHOT/\" method=\"POST\">\n" +
-                "\t\t<label for=\"artist\">Группа</label>\n" +
-                "\t\t<select name=\"artist\">\n" +
-                "\t\t\t<option value=\"1\">Ирина Олегрова</option>\n" +
-                "\t\t\t<option value=\"2\">Каста</option>\n" +
-                "\t\t\t<option value=\"3\">Луна</option>\n" +
-                "\t\t\t<option value=\"4\">Иванушки</option>\n" +
-                "\t\t</select><br/>\n" +
-                "\t\t<label for=\"genre\">Жанр</label><br/>\n" +
-                "\t\t<input type=\"checkbox\" name=\"genre\" value=\"1\"/> Рок <br/>\n" +
-                "\t\t<input type=\"checkbox\" name=\"genre\" value=\"2\"/> Поп <br/>\n" +
-                "\t\t<input type=\"checkbox\" name=\"genre\" value=\"3\"/> Фолк <br/>\n" +
-                "\t\t<input type=\"checkbox\" name=\"genre\" value=\"4\"/> Альт <br/>\n" +
-                "\t\t<input type=\"checkbox\" name=\"genre\" value=\"5\"/> Классика <br/>\n" +
-                "\t\t<input type=\"checkbox\" name=\"genre\" value=\"6\"/> Джаз <br/>\n" +
-                "\t\t<input type=\"checkbox\" name=\"genre\" value=\"7\"/> Тик-тоник <br/>\n" +
-                "\t\t<label for=\"about\">О себе</label><br/>\n" +
-                "\t\t<textarea name=\"about\"></textarea>\n" +
-                "\t\t<input type=\"submit\" name=\"Отправить\">\n" +
-                "\t</form>\n" +
-                "</body>\n" +
-                "</html>");
+        req.getRequestDispatcher("views/vote.jsp").forward(req,resp);
     }
 
     @Override

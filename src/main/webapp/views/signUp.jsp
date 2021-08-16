@@ -12,7 +12,7 @@
 </head>
 <body>
 <p>Заполните данные для регистрации на нашем сайте</p>
-<form action="/signUp" method="POST">
+<form action="signUp" method="POST">
 <table>
 <tbody>
 <tr>
@@ -42,7 +42,7 @@
 </tbody>
 </table>
 <p>
- <input type="submit" value="Зарегистироваться">
+ <input type="submit" value="Зарегистрироваться">
  </p>
 </form>
 </body>

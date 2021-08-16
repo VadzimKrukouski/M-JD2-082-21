@@ -5,7 +5,7 @@
 </head>
 <body>
 <p>Введите логин и пароль</p>
-<form action="/signIn" method="POST">
+<form action="signIn" method="POST">
 <table>
 <tbody>
 <tr>

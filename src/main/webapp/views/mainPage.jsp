@@ -5,7 +5,7 @@
 </head>
 <body>
 <p> Приветствуем на нашем сайте! Зарегистрируйся или войди в свой аккаунт </p>
-<p><input type="button" onclick="href='signUp';" value="Зарегистрироваться"</p>
-<p><input type="button" onclick="href='signIn';" value="Войти в аккаунт"</p>
+<p><input type="button" onclick="location.href='signUp';" value="Зарегистрироваться"</p>
+<p><input type="button" onclick="location.href='signIn';" value="Войти в аккаунт"</p>
 </body>
 </html>

@@ -4,6 +4,7 @@
     <title>Ваши сообщения</title>
 </head>
 <body>
-<p><input type="button" onclick="href='/profile';" value="Вернуться в профиль"</p>
+<p> Ваши сообщения </p>
+<p><input type="button" onclick="location.href='profile';" value="Вернуться в профиль"</p>
 </body>
 </html>

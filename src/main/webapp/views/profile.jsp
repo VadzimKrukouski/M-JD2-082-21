@@ -5,8 +5,9 @@
 </head>
 <body>
 <p>Приветствуем тебя на нашем сайте</p>
-<p><input type="button" onclick="href='/chats';" value="Просмотреть сообщения"</p>
-<p><input type="button" onclick="href='/message';" value="Отправить сообщение"</p>
-<p><input type="button" onclick="href='/logout';" value="Выйти"</p>
+
+<p><input type="button" onclick="location.href='chats';" value="Просмотреть сообщения"</p>
+<p><input type="button" onclick="location.href='message';" value="Отправить сообщение"</p>
+<p><input type="button" onclick="location.href='logout';" value="Выйти"</p>
 </body>
 </html>
