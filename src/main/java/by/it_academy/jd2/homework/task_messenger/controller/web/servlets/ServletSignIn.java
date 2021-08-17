@@ -16,6 +16,9 @@ public class ServletSignIn extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String login = req.getParameter("login");
+        String password = req.getParameter("password");
+
 
 
         req.getRequestDispatcher("views/profile.jsp").forward(req,resp);
