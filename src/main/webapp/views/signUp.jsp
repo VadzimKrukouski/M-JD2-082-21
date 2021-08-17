@@ -12,6 +12,7 @@
 </head>
 <body>
 <p>Заполните данные для регистрации на нашем сайте</p>
+${info}</p>
 <form action="signUp" method="POST">
 <table>
 <tbody>

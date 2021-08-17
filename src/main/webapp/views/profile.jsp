@@ -4,7 +4,7 @@
     <title>Профиль</title>
 </head>
 <body>
-<p>Приветствуем тебя на нашем сайте</p>
+<p>Приветствуем Вас на нашем сайте</p>
 
 <p><input type="button" onclick="location.href='chats';" value="Просмотреть сообщения"</p>
 <p><input type="button" onclick="location.href='message';" value="Отправить сообщение"</p>

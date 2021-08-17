@@ -5,6 +5,7 @@
 </head>
 <body>
 <p>Отправьте сообщение</p>
+${info}</p>
 <form action="message" method="POST">
 <table>
 <tbody>

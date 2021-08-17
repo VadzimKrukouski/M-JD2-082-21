@@ -4,6 +4,8 @@
     <title>Регистрация</title>
 </head>
 <body>
+<p>${infoPassword}
+${infoLogin}</p>
 <p>Введите логин и пароль</p>
 <form action="signIn" method="POST">
 <table>

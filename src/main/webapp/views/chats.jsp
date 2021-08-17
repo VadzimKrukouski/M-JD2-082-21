@@ -5,6 +5,7 @@
 </head>
 <body>
 <p> Ваши сообщения </p>
+${message}
 <p><input type="button" onclick="location.href='profile';" value="Вернуться в профиль"</p>
 </body>
 </html>
