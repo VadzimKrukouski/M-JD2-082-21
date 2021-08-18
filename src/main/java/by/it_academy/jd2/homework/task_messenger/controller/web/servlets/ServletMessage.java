@@ -2,6 +2,7 @@ package by.it_academy.jd2.homework.task_messenger.controller.web.servlets;
 
 import by.it_academy.jd2.homework.task_messenger.model.User;
 import by.it_academy.jd2.homework.task_messenger.model.UsersStorage;
+import by.it_academy.jd2.homework.task_messenger.view.MessageHandle;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,25 +21,7 @@ public class ServletMessage extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String from = (String) req.getSession().getAttribute("login");
-        String recipient = req.getParameter("recipient");
-        String text = req.getParameter("text");
-
-        UsersStorage usersStorage = new UsersStorage();
-        Date date = new Date();
-        User addresses = usersStorage.getUser(recipient);
-        if (addresses != null) {
-            String message = from + " " + text + " " + date.toString();
-            addresses.addMessage(message);
-            req.setAttribute("info", "Сообщение отправлено");
-            req.getRequestDispatcher("views/message.jsp").forward(req, resp);
-        }
-        if (addresses==null){
-            req.setAttribute("info", "Получатель не найден");
-            req.getRequestDispatcher("views/message.jsp").forward(req, resp);
-        }
-
-
-
+        MessageHandle messageHandle = new MessageHandle();
+        messageHandle.sendMessage(req,resp);
     }
 }

@@ -10,10 +10,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class SignUpHandle {
-    private static final String LOGIN_PARAM = "login";
-    private static final String PASSWORD_PARAM = "password";
-    private static final String FIO_PARAM = "fio";
-    private static final String BIRTHDAY_PARAM = "birthday";
+
 
     private static final SignUpHandle instance = new SignUpHandle();
 
@@ -24,12 +21,9 @@ public class SignUpHandle {
         return instance;
     }
 
-    public void registrationUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = new User();
+    public void registrationUser(HttpServletRequest req, HttpServletResponse resp, User user) throws ServletException, IOException {
         UsersStorage usersStorage = new UsersStorage();
         HttpSession session = req.getSession();
-
-        setAttributeUser(req, user);
 
         if (usersStorage.addUser(user)) {
             session.setAttribute("user", user);
@@ -39,17 +33,7 @@ public class SignUpHandle {
         } else {
             req.setAttribute("info", "Такой пользователь уже существует");
             req.getRequestDispatcher("views/signUp.jsp").forward(req, resp);
-
-
         }
-    }
-
-    private void setAttributeUser(HttpServletRequest req, User user) {
-        user.setLogin(req.getParameter(LOGIN_PARAM));
-        user.setPassword(req.getParameter(PASSWORD_PARAM));
-        user.setFio(req.getParameter(FIO_PARAM));
-        user.setBirthday(req.getParameter(BIRTHDAY_PARAM));
-
     }
 }
 

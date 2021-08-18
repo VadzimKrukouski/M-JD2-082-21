@@ -1,7 +1,5 @@
 package by.it_academy.jd2.homework.task_messenger.controller.web.servlets;
 
-import by.it_academy.jd2.homework.task_messenger.model.User;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
