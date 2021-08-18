@@ -1,10 +1,9 @@
-package by.it_academy.jd2.homework.task_person.controller.web.filters;
+package by.it_academy.jd2.homework.task_messenger.controller.web.filters;
 
 import javax.servlet.*;
 import java.io.IOException;
 
-public class EncodingFilter implements Filter {
-
+public class MessengerEncodingFilter implements Filter {
     private String encoding = null;
 
     @Override

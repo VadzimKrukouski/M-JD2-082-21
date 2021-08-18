@@ -4,7 +4,7 @@
     <title>Главная страница сайта</title>
 </head>
 <body>
-<p> Приветствуем на нашем сайте! Зарегистрируйся или войди в свой аккаунт </p>
+<h2> Приветствуем на нашем сайте! Зарегистрируйся или войди в свой аккаунт </h2>
 <p><input type="button" onclick="location.href='signUp';" value="Зарегистрироваться"</p>
 <p><input type="button" onclick="location.href='signIn';" value="Войти в аккаунт"</p>
 </body>

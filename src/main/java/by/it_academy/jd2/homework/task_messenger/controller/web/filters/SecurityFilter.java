@@ -1,4 +1,4 @@
-package by.it_academy.jd2.homework.task_vote.controller.web.filters;
+package by.it_academy.jd2.homework.task_messenger.controller.web.filters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter (urlPatterns = {})
+@WebFilter(urlPatterns = {"/chats", "/message"})
 public class SecurityFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

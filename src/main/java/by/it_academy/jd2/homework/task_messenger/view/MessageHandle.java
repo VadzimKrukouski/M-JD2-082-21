@@ -29,11 +29,11 @@ public class MessageHandle {
         if (addresses != null) {
             String message = from + " " + text + " " + date.toString();
             addresses.addMessage(message);
-            req.setAttribute("info", "Сообщение отправлено");
+            req.setAttribute("infoOk", "Сообщение отправлено");
             req.getRequestDispatcher("views/message.jsp").forward(req, resp);
         }
         if (addresses == null) {
-            req.setAttribute("info", "Получатель не найден");
+            req.setAttribute("infoErr", "Получатель не найден");
             req.getRequestDispatcher("views/message.jsp").forward(req, resp);
         }
     }
@@ -47,7 +47,7 @@ public class MessageHandle {
 
         //из юзера получаем все его сообщения
         List<String> messages = user.getMessages();
-        req.setAttribute("message", messages);
+        req.setAttribute("messages", messages);
         req.getRequestDispatcher("views/chats.jsp").forward(req, resp);
     }
 }

@@ -4,9 +4,9 @@
     <title>Регистрация</title>
 </head>
 <body>
-<p>${infoPassword}
+<h3>Введите логин и пароль</h3>
+<p><span style='color: red;'>${infoPassword}
 ${infoLogin}</p>
-<p>Введите логин и пароль</p>
 <form action="signIn" method="POST">
 <table>
 <tbody>

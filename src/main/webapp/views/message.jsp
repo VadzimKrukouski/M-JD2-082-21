@@ -4,8 +4,9 @@
     <title>Отправка сообщения</title>
 </head>
 <body>
-<p>Отправьте сообщение</p>
-${info}</p>
+<h3>Отправьте сообщение</h3>
+<span style='color: green;'>${infoOk}</p>
+<span style='color: red;'>${infoErr}</p>
 <form action="message" method="POST">
 <table>
 <tbody>

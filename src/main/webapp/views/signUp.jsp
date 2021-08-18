@@ -11,8 +11,8 @@
     <title>Регистрация</title>
 </head>
 <body>
-<p>Заполните данные для регистрации на нашем сайте</p>
-${info}</p>
+<h3>Заполните данные для регистрации на нашем сайте</h3>
+<span style='color: red;'>${info}</p>
 <form action="signUp" method="POST">
 <table>
 <tbody>
