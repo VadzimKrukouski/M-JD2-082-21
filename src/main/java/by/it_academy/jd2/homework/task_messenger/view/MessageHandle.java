@@ -27,7 +27,7 @@ public class MessageHandle {
 
         //если адрессат существует, успешно отправляем сообщение и добавляем сообщение к адрессату
         if (addresses != null) {
-            String message = from + " " + text + " " + date.toString();
+            String message = "От кого: " + from + " " + "Сообщение: " + text + " " + "Время отправления: " + date.toString();
             addresses.addMessage(message);
             req.setAttribute("infoOk", "Сообщение отправлено");
             req.getRequestDispatcher("views/message.jsp").forward(req, resp);
