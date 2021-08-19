@@ -44,22 +44,28 @@ public class DataPersonServlet extends HttpServlet {
 //        resp.setContentType("text/html; charset=UTF-8");
 //        req.setCharacterEncoding("utf-8");
 
-
-        //создаём объект персона и туда из реквеста записываем значения, получаемые из параметров
-        Person person = new Person();
-        person.setFirstName(req.getParameter(FIRST_NAME_PARAM_NAME));
-        person.setLastName(req.getParameter(LAST_NAME_PARAM_NAME));
-        person.setAge(req.getParameter(AGE_PARAM));
+        String firstNameValue = req.getParameter(FIRST_NAME_PARAM_NAME);
+        String lastNameValue = req.getParameter(LAST_NAME_PARAM_NAME);
+        String ageValue = req.getParameter(AGE_PARAM);
 
         //проверяем переданы ли все обязательные параметры
-        if (person.getFirstName() == null || person.getLastName() == null || person.getAge() == null) {
+        if (firstNameValue== null || lastNameValue == null || ageValue == null) {
             throw new IllegalArgumentException("Переданы не все параметры");
         }
 
-        //получаем из реквеста наш заголовок и проверяем его без учёта регистра
-        StorageType header = StorageType.valueOfIgnoreCase(req.getHeader(HEADER_PARAM_NAME));
+        //создаём объект персона и туда из записываем значения
+        Person person = new Person();
+        person.setFirstName(firstNameValue);
+        person.setLastName(lastNameValue);
+        person.setAge(ageValue);
 
-        HandleRequest handler = header.getHandler();
+        //получаем из реквеста наш заголовок и проверяем его без учёта регистра
+        String header = req.getHeader(HEADER_PARAM_NAME);
+        StorageType storageType = StorageType.valueOfIgnoreCase(header);
+        HandleRequest handler = storageType.getHandler();
+//        StorageType header = StorageType.valueOfIgnoreCase(req.getHeader(HEADER_PARAM_NAME));
+//
+//        HandleRequest handler = header.getHandler();
 
         if (handler == null) {
             throw new IllegalArgumentException("Не передан тип сохранения");
