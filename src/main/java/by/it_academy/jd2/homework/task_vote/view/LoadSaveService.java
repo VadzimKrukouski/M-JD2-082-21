@@ -1,16 +1,17 @@
 package by.it_academy.jd2.homework.task_vote.view;
 
 import by.it_academy.jd2.homework.task_vote.model.VoteStorage;
+import by.it_academy.jd2.homework.task_vote.view.api.ILoadSaveService;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public class LoadSaveService {
+public class LoadSaveService implements ILoadSaveService {
 
     private final VoteStorage storage;
     private static final LoadSaveService instance = new LoadSaveService();
     private static final String FILE_NAME = "vote.txt";
-    private static final String FILE = PathCreator.getFileName(LoadSaveService.class, FILE_NAME);
+    private static final String FILE = PathCreator.getFileName(FILE_NAME);
 
     public LoadSaveService() {
         this.storage = VoteStorage.getInstance();

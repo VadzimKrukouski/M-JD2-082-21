@@ -9,11 +9,11 @@ public class PathCreator {
     private PathCreator() {
     }
 
-    static String getFileName(Class<?> aClass, String filename) {
+    static String getFileName(String filename) {
         String root = System.getProperty(USER_DIR);
-        String path = aClass
+        String path = LoadSaveService.class
                 .getName()
-                .replace(aClass.getSimpleName(), "")
+                .replace(LoadSaveService.class.getSimpleName(), "")
                 .replace(".", File.separator);
         return root + File.separator + SRC + File.separator + path + filename;
     }

@@ -7,19 +7,19 @@
 <form action="vote" method="POST">
 <label for="artist">Группа</label>
 <select name="artist">
-<option value="1">Ирина Олегрова</option>
-<option value="2">Каста</option>
-<option value="3">Луна</option>
-<option value="4">Иванушки</option>
+<option value="Linkin Park">Linkin Park</option>
+<option value="50 Cent">50 Cent</option>
+<option value="Eminem">Eminem</option>
+<option value="Иванушки">Иванушки</option>
 </select><br/>
 <label for="genre">Жанр</label><br/>
-<input type="checkbox" name="genre" value="1"> Рок <br/>
-<input type="checkbox" name="genre" value="2"> Поп <br/>
-<input type="checkbox" name="genre" value="3"> Фолк <br/>
-<input type="checkbox" name="genre" value="4"> Альт <br/>
-<input type="checkbox" name="genre" value="5"> Классика <br/>
-<input type="checkbox" name="genre" value="6"> Джаз <br/>
-<input type="checkbox" name="genre" value="7"> Тик-тоник <br/>
+<input type="checkbox" name="genre" value="Рэп"> Рэп <br/>
+<input type="checkbox" name="genre" value="Поп"> Поп <br/>
+<input type="checkbox" name="genre" value="Рок"> Рок <br/>
+<input type="checkbox" name="genre" value="Электро"> Электро <br/>
+<input type="checkbox" name="genre" value="Классика"> Классика <br/>
+<input type="checkbox" name="genre" value="Джаз"> Джаз <br/>
+<input type="checkbox" name="genre" value="Металл"> Металл <br/>
 <label for="about">О себе<label><br/>
 <textarea name="about"></textarea>
 <input type="submit" name="Отправить">

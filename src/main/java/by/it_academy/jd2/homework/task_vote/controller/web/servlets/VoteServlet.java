@@ -33,11 +33,15 @@ public class VoteServlet extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         PrintWriter writer = resp.getWriter();
 
+
         String artist = req.getParameter("artist");
         String[] genres = req.getParameterValues("genre");
         String about = req.getParameter("about");
 
-        this.service.addVote(artist, genres, about);
+        this.service.addVoteArtist(artist);
+        this.service.addVoteGenre(genres);
+        this.service.addVoteAbout(about);
+
         Printer printer = new Printer();
 
         printer.printerVoteArtist(writer);
