@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="M-JD2-082-21-1.0-SNAPSHOT.war">
+    <root id="archive" name="DataBase-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="M-JD2-082-21:war exploded" />
     </root>
   </artifact>
